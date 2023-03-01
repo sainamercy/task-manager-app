@@ -18,7 +18,7 @@ function NavBar() {
             className=""
             href="#"
           >
-            Create New Task
+            My tasks
           </a>
         </li>
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
@@ -26,7 +26,7 @@ function NavBar() {
             className=""
             href="#"
           >
-            My tasks
+            Create New Task
           </a>
         </li>
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
