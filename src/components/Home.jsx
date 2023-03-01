@@ -11,7 +11,7 @@ function Home() {
           className="rounded-full"
         />
         <p className="text-center">TaskMaster is a powerful and user-friendly app designed to help you stay on top of your tasks and increase your productivity. With its intuitive interface, you can easily create and organize tasks, set due dates and reminders, and track your progress.</p>
-        <Link to="/signin">
+        <Link to="/signup">
         <button className="bg-gradient-to-b from-orange-600 to-orange-300 p-3 rounded-full w-40 hover:opacity-80">Get started</button>
         </Link>
       </div>

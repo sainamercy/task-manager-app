@@ -2,9 +2,10 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-import Signup from "./components/Signup";
+import Login from "./components/Login";
 import TaskList from "./components/TaskList";
 import NewTask from "./components/NewTask";
+import Signup from "./components/Signup";
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/tasklist" element={<TaskList />}/>
         <Route path="/newtask" element={<NewTask />}/>
-        <Route path="/signin" element={<Signup />}/>
+        <Route path="/signin" element={<Login />}/>
+        <Route path="/signup" element={<Signup />}/>
         </Routes>
     </div>
   );

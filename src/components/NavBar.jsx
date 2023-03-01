@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <nav className="w-full h-20 rounded-lg flex items-center bg-teal-900 text-white text-sm md:text-lg md:h-full md:w-1/6 md:flex-col">
-        <h1 className="mt-20 text-4xl text-orange-400">TaskMaster</h1>
+        <h1 className="mt-20 text-4xl text-orange-600 font-bold">TaskMaster</h1>
       <ul className="flex flex-col gap-8 mt-6">
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
           <Link to="/"
