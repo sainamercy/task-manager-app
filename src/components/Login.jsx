@@ -8,7 +8,7 @@ function Login(){
                 <h3 className="text-3xl text-center text-orange-600 font-bold">Log In</h3>
             <label htmlFor="email">
                 Email:
-                <input type="text" name="email" id="email" placeholder="janedoe@gmail.com" className="w-full rounded-lg p-2"/>
+                <input type="text" name="email" id="email" placeholder="eg. janedoe@gmail.com" className="w-full rounded-lg p-2"/>
             </label>
             <label htmlFor="password">
                 Password:

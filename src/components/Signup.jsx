@@ -8,11 +8,11 @@ function Signup(){
             <h3 className="text-3xl text-center text-orange-600 font-bold">Sign up to get sarted</h3>
             <label htmlFor="Email">
                 Email:
-                <input type="text" name="email" className="w-full rounded-lg p-2"/>
+                <input type="text" name="email" placeholder="eg. janedoe@gmail.com" className="w-full rounded-lg p-2"/>
             </label>
             <label htmlFor="name">
                 Name:
-                <input type="text" name="name" className="w-full rounded-lg p-2"/>
+                <input type="text" name="name" placeholder="eg. Jane Doe" className="w-full rounded-lg p-2"/>
             </label>
             <label htmlFor="password">
                 Password:
