@@ -1,11 +1,11 @@
 import React from "react";
 
-function TaskList(){
+function NewTask(){
     return(
         <div>
-            <h1>Task List</h1>
+            <h1>New Task</h1>
         </div>
     )
 }
 
-export default TaskList;
+export default NewTask;

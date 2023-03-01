@@ -1,41 +1,38 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <nav className="w-full h-20 rounded-lg flex items-center bg-teal-900 text-white text-sm gap-6 md:text-lg md:h-full md:w-1/6 md:flex-col">
-        <h1 className="mt-20 text-4xl text-orange-500">TaskMaster</h1>
-      <ul className="flex flex-col gap-8">
+    <nav className="w-full h-20 rounded-lg flex items-center bg-teal-900 text-white text-sm md:text-lg md:h-full md:w-1/6 md:flex-col">
+        <h1 className="mt-20 text-4xl text-orange-400">TaskMaster</h1>
+      <ul className="flex flex-col gap-8 mt-6">
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
-          <a
+          <Link to="/"
             className=""
-            href="#"
-          >
+          ><i className="fa-solid fa-house-chimney mr-2"></i>
             Home
-          </a>
+          </Link>
         </li>
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
-          <a
+          <Link to="/tasklist"
             className=""
-            href="#"
-          >
+          ><i className="fa-solid fa-list-check mr-2"></i>
             My tasks
-          </a>
+          </Link>
         </li>
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
-          <a
+          <Link to="/newtask"
             className=""
-            href="#"
-          >
+          ><i className="fa-solid fa-plus mr-2"></i>
             Create New Task
-          </a>
+          </Link>
         </li>
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
-          <a
+          <Link to="/signin"
             className=""
-            href="#"
-          >
+          ><i className="fa-solid fa-right-to-bracket mr-2"></i>
             Sign In
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
