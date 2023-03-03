@@ -5,10 +5,7 @@ export const AuthContext = createContext();
 import { useNavigate } from "react-router-dom";
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState({
-    id: 1,
-    email: "mercy@gmail.com",
-  });
+  const [user, setUser] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
