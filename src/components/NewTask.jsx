@@ -1,4 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { API_URL } from "../constants";
+import { useAuthContext } from "../providers/Auth.provider";
+import { useNavigate } from "react-router-dom";
 
 const TextInput = ({ label, value, onChange, placeholder }) => {
   return (
@@ -64,7 +68,11 @@ function NewTask() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState(0);
-  const [date, setDate] = useState("");
+  const [due, setDueDate] = useState("");
+  const { user } = useAuthContext();
+  const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,18 +81,37 @@ function NewTask() {
       title,
       description,
       priority,
-      date,
+      due,
+      user_id: user?.id,
     };
 
     // TODO:  send api request and  if successful redirect to  my tasks page
+    console.log(requestBody);
+
+    setIsLoading(true);
+
+    axios
+      .post(`${API_URL}/tasks/create`, requestBody)
+      .then(() => {
+        // setIsLoading(false);
+        navigate("/tasklist");
+      })
+      .catch(() => {
+        // TODO:  handle error
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
 
     // clear previous entries
     setTitle("");
     setDescription("");
     setPriority(0);
-    setDate("");
+    setDueDate("");
   };
 
+  // TODO: What to do when the request is loading
+  // TODO:  Beautify the form
   return (
     <div className="w-full h-full bg-gray-100 flex flex-col gap-10  md:w-5/6">
       <form onSubmit={handleSubmit} className="w-96 md:w-1/2 m-4">
@@ -111,8 +138,8 @@ function NewTask() {
           <input
             type="datetime-local"
             className="p-2 border-blue-300 focus:border-blue-500"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={due}
+            onChange={(e) => setDueDate(e.target.value)}
           />
           <Priority
             currentValue={priority}

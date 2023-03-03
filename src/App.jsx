@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="w-screen h-screen flex flex-col justify-center md:flex-row">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={BaseRoute(Home)} />
         <Route path="/tasklist" element={SecureRoute(TaskList)} />
         <Route path="/newtask" element={SecureRoute(NewTask)} />
         <Route path="/signin" element={BaseRoute(Login)} />
