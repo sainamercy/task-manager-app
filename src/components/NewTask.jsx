@@ -14,7 +14,7 @@ const TextInput = ({ label, value, onChange, placeholder }) => {
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          className="w-full rounded-lg p-2"
+          className="w-full rounded-lg p-4"
         />
       </label>
     </div>
@@ -111,10 +111,9 @@ function NewTask() {
   };
 
   // TODO: What to do when the request is loading
-  // TODO:  Beautify the form
   return (
-    <div className="w-full h-full bg-gray-100 flex flex-col gap-10  md:w-5/6">
-      <form onSubmit={handleSubmit} className="w-96 md:w-1/2 m-4">
+    <div className="w-full h-full bg-gray-100 flex items-center justify-center flex-col gap-10  md:w-5/6 bg-[url('https://media.istockphoto.com/id/1341538285/photo/being-organased-saves-tame.jpg?b=1&s=170667a&w=0&k=20&c=vWcvUzJczooUH5Gul4TW-cTLzIW862y6Q5hI2ImJRhk=')] bg-cover bg-no-repeat">
+      <form onSubmit={handleSubmit} className="w-96 md:w-1/2 m-4 gap-6 bg-gray-500/80 p-6 rounded-lg shadow-xl">
         <div className="flex flex-col justify-center">
           <TextInput
             placeholder="What would you like to do?"
@@ -128,7 +127,7 @@ function NewTask() {
           </label>
           <textarea
             placeholder="What would you like to do?"
-            className="p-2 border-blue-300 focus:border-blue-500"
+            className="p-4 border-blue-300 focus:border-blue-500 rounded-lg"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -137,7 +136,7 @@ function NewTask() {
           </label>
           <input
             type="datetime-local"
-            className="p-2 border-blue-300 focus:border-blue-500"
+            className="p-4 border-blue-300 focus:border-blue-500 rounded-lg"
             value={due}
             onChange={(e) => setDueDate(e.target.value)}
           />
@@ -147,7 +146,7 @@ function NewTask() {
           />
 
           <button
-            className="bg-gradient-to-b from-orange-600 to-orange-300 p-3 rounded-full w-40 hover:opacity-80 m-auto"
+            className="bg-gradient-to-b from-orange-600 to-orange-300 p-4 rounded-full w-40 hover:opacity-80 m-auto"
             type="submit"
           >
             Submit
