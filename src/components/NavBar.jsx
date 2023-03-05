@@ -9,7 +9,7 @@ function NavBar({ isAuth }) {
   };
 
   return (
-    <nav className="w-full h-20 rounded-lg flex items-center bg-teal-900 text-white text-sm md:text-lg md:h-full md:w-1/6 md:flex-col">
+    <nav className="w-full h-20 flex items-center bg-gray-900 text-white text-sm md:text-lg md:h-full md:w-1/6 md:flex-col">
       <h1 className="mt-20 text-4xl text-orange-600 font-bold">TaskMaster</h1>
       <ul className="flex flex-col gap-8 mt-6">
         <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
@@ -34,9 +34,9 @@ function NavBar({ isAuth }) {
             </li>
             <li
               onClick={logOut}
-              className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg"
+              className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg cursor-pointer"
             >
-              <i className="fa-solid fa-left-to-bracket mr-2"></i>
+              <i className="fa-solid fa-right-from-bracket mr-2"></i>
               Log Out
             </li>
           </>
