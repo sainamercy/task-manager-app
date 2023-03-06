@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search() {
+function Search({ currentValue, onChange, handleClick }) {
   return (
     <div className="flex justify-center">
       <div className="xl:w-96">
@@ -11,6 +11,8 @@ function Search() {
             placeholder="Search"
             aria-label="Search"
             aria-describedby="button-addon1"
+            value={currentValue}
+            onChange={(e) => onChange(e.target.value)}
           />
           <button
             className="relative z-[2] flex items-center rounded-r bg-gradient-to-b from-orange-600 to-orange-300 hover:opacity-80 px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:opacity-80 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-600 active:shadow-lg"
@@ -18,6 +20,7 @@ function Search() {
             id="button-addon1"
             data-te-ripple-init
             data-te-ripple-color="light"
+            onClick={handleClick}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,4 +41,4 @@ function Search() {
   );
 }
 
-export default Search
+export default Search;
