@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { API_URL } from "../constants";
 import { useAuthContext } from "../providers/Auth.provider";
 import { useNavigate } from "react-router-dom";
+import { createTask } from "../api/tasks";
 
 const TextInput = ({ label, value, onChange, placeholder }) => {
   return (
@@ -85,13 +86,9 @@ function NewTask() {
       user_id: user?.id,
     };
 
-    // TODO:  send api request and  if successful redirect to  my tasks page
-    console.log(requestBody);
-
     setIsLoading(true);
 
-    axios
-      .post(`${API_URL}/tasks/create`, requestBody)
+    createTask(requestBody)
       .then(() => {
         // setIsLoading(false);
         navigate("/tasklist");
@@ -110,10 +107,13 @@ function NewTask() {
     setDueDate("");
   };
 
-  // TODO: What to do when the request is loading
+  // TODO:  handle request loading
   return (
     <div className="w-full h-full bg-gray-100 flex items-center justify-center flex-col gap-10  md:w-5/6 bg-[url('https://media.istockphoto.com/id/1341538285/photo/being-organased-saves-tame.jpg?b=1&s=170667a&w=0&k=20&c=vWcvUzJczooUH5Gul4TW-cTLzIW862y6Q5hI2ImJRhk=')] bg-cover bg-no-repeat">
-      <form onSubmit={handleSubmit} className="w-96 md:w-1/2 m-4 gap-6 bg-gray-500/80 p-6 rounded-lg shadow-xl">
+      <form
+        onSubmit={handleSubmit}
+        className="w-96 md:w-1/2 m-4 gap-6 bg-gray-500/80 p-6 rounded-lg shadow-xl"
+      >
         <div className="flex flex-col justify-center">
           <TextInput
             placeholder="What would you like to do?"

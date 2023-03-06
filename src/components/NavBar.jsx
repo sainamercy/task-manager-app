@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../providers/Auth.provider";
 
 function NavBar({ isAuth }) {
   const logOut = () => {
@@ -8,16 +9,20 @@ function NavBar({ isAuth }) {
     window.location.href = "/";
   };
 
+
+
   return (
     <nav className="w-full h-20 flex items-center bg-gray-900 text-white text-sm md:text-lg md:h-full md:w-1/6 md:flex-col">
       <h1 className="mt-20 text-4xl text-orange-600 font-bold">TaskMaster</h1>
       <ul className="flex flex-col gap-8 mt-6">
-        <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
+        {!isAuth &&   (
+          <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">
           <Link to="/" className="">
             <i className="fa-solid fa-house-chimney mr-2"></i>
             Home
           </Link>
         </li>
+        )}
         {isAuth ? (
           <>
             <li className="hover:bg-gradient-to-b from-orange-600 to-orange-300 p-2 rounded-lg">

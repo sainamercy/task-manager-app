@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //TODO:  handle from validation
+    //TODO:   from validation
 
     const user = {
       email,
