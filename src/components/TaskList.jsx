@@ -91,7 +91,30 @@ const TaskList = () => {
     <div className="w-full h-screen bg-gray-100 flex flex-col items-center gap-2 text-gray-800 md:w-5/6">
       <div className="w-full text-center p-4 border-b border-gray-300 flex justify-between items-center">
         <h1 className="text-center text-2xl font-bold">Task List</h1>
-
+        <div className="flex">
+        <input
+          type={"date"}
+          value={searchDate}
+          onChange={(e) => {
+            setSearchDate(e.target.value);
+            console.log(searchDate);
+          }}
+          className="bg-gray-100 border border-gray-300 p-2 w-56 rounded-l-md"
+          placeholder="Search by date"
+        />
+        <button
+          className="bg-gradient-to-b from-gray-600 to-gray-300 hover:opacity-50 text-white font-bold p-2"
+          onClick={() => filterByDate(searchDate)}
+        >
+          Filter By Date
+        </button>
+        <button
+          className="bg-gradient-to-b from-orange-600 to-orange-300 hover:opacity-50 text-white font-bold p-2 rounded-r-md"
+          onClick={() => setTasks(allTasks)}
+        >
+          Reset
+        </button>
+      </div>
         <div className="flex items-center gap-6">
           <Search
             currentValue={searchValue}
@@ -105,30 +128,6 @@ const TaskList = () => {
             {user?.full_name}
           </p>
         </div>
-      </div>
-      <div className="flex right-5">
-        <input
-          type={"date"}
-          value={searchDate}
-          onChange={(e) => {
-            setSearchDate(e.target.value);
-            console.log(searchDate);
-          }}
-          className="bg-gray-100 border border-gray-300 p-2 w-56 rounded-l-md"
-          placeholder="Search by date"
-        />
-        <button
-          className="bg-gray-600 hover:opacity-50 text-white font-bold p-2"
-          onClick={() => filterByDate(searchDate)}
-        >
-          Filter By Date
-        </button>
-        <button
-          className="bg-orange-500 hover:opacity-50 text-white font-bold p-2 rounded-r-md"
-          onClick={() => setTasks(allTasks)}
-        >
-          Reset
-        </button>
       </div>
       <div className="w-full flex justify-between p-6 h-full">
         <div className="bg-red-50 h-full w-1/3 p-3 rounded-xl">
