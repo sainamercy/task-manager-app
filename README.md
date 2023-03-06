@@ -35,11 +35,11 @@ It allows users to create, organize, prioritize and track tasks in a central pla
 - This will also redirect you to the task list page.
 
 #### Log-out
-- Click `log-out` option on the navigation bar to get log out.
+- Click `log-out` option on the navigation bar to get logged out.
 
 ### Create a new task
-- After logging in `create task` option will appear on the navigation bar.
-- Click on `create task` option to display the form for creating a new task.
+- After logging in `create new task` option will appear on the navigation bar.
+- Click on `create new task` option to display the form for creating a new task.
 - Fill all fields with necessary information.
 - Click on `submit` button.
 - Your new task will appear on the task list.
