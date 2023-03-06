@@ -1,1 +1,1 @@
-export const API_URL = "http://localhost:9292";
+export const API_URL = "https://mercy-task-master.onrender.com";
