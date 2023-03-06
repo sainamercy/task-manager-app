@@ -56,8 +56,6 @@ const TaskList = () => {
     getTasks();
   }, []);
 
-
-
   const handleTaskStateChange = (taskId, newStatus) => {
     try {
       const taskToUpdate = tasks.find((task) => task.id === taskId);
@@ -92,17 +90,23 @@ const TaskList = () => {
   return (
     <div className="w-full h-screen bg-gray-100 flex flex-col items-center gap-2 text-gray-800 md:w-5/6">
       <div className="w-full text-center p-4 border-b border-gray-300 flex justify-between items-center">
-        <h1 className="text-center">Task List for {user?.full_name} </h1>
+        <h1 className="text-center text-2xl font-bold">Task List</h1>
 
-        <Search
-          currentValue={searchValue}
-          handleClick={handleSearch}
-          onChange={(v) => {
-            setSearchValue(v);
-          }}
-        />
+        <div className="flex items-center gap-6">
+          <Search
+            currentValue={searchValue}
+            handleClick={handleSearch}
+            onChange={(v) => {
+              setSearchValue(v);
+            }}
+          />
+          <p>
+            <i className="fa-solid fa-user mr-2"></i>
+            {user?.full_name}
+          </p>
+        </div>
       </div>
-      <div>
+      <div className="flex right-5">
         <input
           type={"date"}
           value={searchDate}
@@ -110,24 +114,24 @@ const TaskList = () => {
             setSearchDate(e.target.value);
             console.log(searchDate);
           }}
-          className="bg-gray-100 border-2 border-gray-300 p-2 rounded-md w-56"
+          className="bg-gray-100 border border-gray-300 p-2 w-56 rounded-l-md"
           placeholder="Search by date"
         />
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-lg"
+          className="bg-gray-600 hover:opacity-50 text-white font-bold p-2"
           onClick={() => filterByDate(searchDate)}
         >
           Filter By Date
         </button>
         <button
-          className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded-lg"
+          className="bg-orange-500 hover:opacity-50 text-white font-bold p-2 rounded-r-md"
           onClick={() => setTasks(allTasks)}
         >
           Reset
         </button>
       </div>
       <div className="w-full flex justify-between p-6 h-full">
-        <div className="bg-red-50 h-full w-1/4 p-3 rounded-xl">
+        <div className="bg-red-50 h-full w-1/3 p-3 rounded-xl">
           <h2 className="bg-gray-900 text-gray-50 p-2 rounded-full w-32 text-center mb-2">
             To Do
           </h2>
@@ -137,8 +141,8 @@ const TaskList = () => {
             tasks={tasksInTodo}
           />
         </div>
-        <div className="bg-orange-50 h-full w-1/4 p-3 rounded-xl">
-          <h2 className="bg-gray-900 text-gray-50 p-2 rounded-full w-32 text-center">
+        <div className="bg-orange-50 h-full w-1/3 p-3 rounded-xl">
+          <h2 className="bg-gray-900 text-gray-50 p-2 rounded-full w-32 text-center mb-2">
             In Progress
           </h2>
           <TaskGroup
@@ -147,8 +151,8 @@ const TaskList = () => {
             tasks={tasksInProgress}
           />
         </div>
-        <div className="bg-green-50 h-full w-1/4 p-3 rounded-xl">
-          <h2 className="bg-gray-900 text-gray-50 p-2 rounded-full w-32 text-center">
+        <div className="bg-green-50 h-full w-1/3 p-3 rounded-xl mr-3">
+          <h2 className="bg-gray-900 text-gray-50 p-2 rounded-full w-32 text-center mb-2">
             Completed
           </h2>
           <TaskGroup

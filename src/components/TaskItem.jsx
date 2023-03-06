@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { formatDateTime } from "../utilities/functions";
 
 const TaskStatus = ({ currentValue, onChange }) => {
@@ -34,14 +34,31 @@ function TaskItem({
   const handleChange = (newValue) => {
     handleTaskStateChange(id, newValue);
   };
+  const [taskDetails, setTaskDetails] = useState(false);
+
+  const handleTaskDetails = () => {
+    setTaskDetails(!taskDetails);
+  };
 
   return (
     <div className="border border-gray-300 p-2 rounded-xl w-full bg-orange-50 flex flex-col gap-2 mb-4">
-      <h3 className="text-2xl underline decoration-orange-400">{title}</h3>
-      <p>{description}</p>
+      <div className="flex justify-between">
+        <h3 className="text-2xl underline decoration-orange-400">{title}</h3>
+        {!taskDetails ? (
+          <i
+            onClick={handleTaskDetails}
+            className="fa-sharp fa-solid fa-chevron-down mr-3"
+          ></i>
+        ) : (
+          <i
+            onClick={handleTaskDetails}
+            className="fa-sharp fa-solid fa-chevron-up mr-3"
+          ></i>
+        )}
+      </div>
+      {taskDetails ? <p>{description}</p> : null}
       <p>Due: {formatDateTime(due)}</p>
       <div className="flex justify-between">
-        {/* <p className="capitalize">{status.toLowerCase()}</p> */}
         <p className="capitalize">{priority.toLowerCase()}</p>
         <TaskStatus onChange={handleChange} currentValue={status} />
       </div>
